@@ -1,0 +1,54 @@
+﻿@model GZIJ20241203.Models.Proveedore
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Eliminar</h1>
+
+<h3>¿Estás seguro de eliminar este registro?</h3>
+<div>
+    <h4>Proveedore</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Producto)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Producto)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaRegistro)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FechaRegistro)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CorreoElectronico)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CorreoElectronico)
+        </dd>
+    
+    </dl>
+    <div class="row row-cols-md-12">
+        @await Html.PartialAsync("_DireccionesProveedor", Model.DireccionesProveedors)
+    </div>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdProveedor" />
+        <input type="submit" value="Eliminar" class="btn btn-outline-danger" /> |
+        <a class="btn btn-outline-secondary" asp-action="Index">Cancelar</a>
+    </form>
+</div>
