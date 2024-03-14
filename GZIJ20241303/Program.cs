@@ -1,7 +1,13 @@
+using GZIJ20241303.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<GZIJ20241303DbContext>(options =>
+   options.UseSqlServer(builder.Configuration.GetConnectionString("CONN")));
 
 var app = builder.Build();
 
